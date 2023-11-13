@@ -1,172 +1,24 @@
-<a name="readme-top"></a>
+# README
 
-<div align="center">
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-  <h1><b>Recipe App</b></h1>
+Things you may want to cover:
 
-</div>
+* Ruby version
 
-<!-- TABLE OF CONTENTS -->
+* System dependencies
 
-## 📗 Table of Contents
+* Configuration
 
-- [📖 Recipe-App ](#-recipe-app)
-  - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
-    - [Setup](#setup)
-    - [Install](#install)
-    - [Usage](#usage)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
+* Database creation
 
-<!-- PROJECT DESCRIPTION -->
+* Database initialization
 
-# 📖 Recipe On Rails <a name="about-project"></a>
+* How to run the test suite
 
-**Recipe App** A recipe app used to manage information on food, recipe and shopping list.
+* Services (job queues, cache servers, search engines, etc.)
 
-## 🛠 Built With <a name="built-with"></a>
+* Deployment instructions
 
-### Tech Stack <a name="tech-stack"></a>
-
-<details>
-  <summary>Server</summary>
-    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
-    <li><a href="https://rubyonrails.org/">Rails</a></li>
-</details>
-<details>
-  <summary>Database</summary>
-    <li><a href="https://www.postgresql.org/">Postgres</a></li>
-</details>
-
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
-- **Built using Ruby on Rails**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 💻 Getting Started <a name="getting-started"></a>
-
-To get a local copy up and running, follow these steps.
-
-### Prerequisites
-
-In order to run this project you need:
-
-```
-    ruby >= 3.2.2
-    rails >= 7.0
-    postgres >- 15.3
-```
-
-### Setup
-
-Clone this repository to your desired folder:
-
-```bash
-  git clone https://github.com/katarighe/recipe-app
-```
-
-### Install
-
-Install this project with:
-
-```bash
-  cd recipe-app
-  bundle install
-```
-
-it will install the required gemfile for running the project
-
-### Usage
-
-to use this project:
-
-```ruby
-   bin/rails server or
-   rails server
-```
-
-it will run the the server on ```localhost:3000```
-
-to run tests:
-
-```rspec
-```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-## 👥 Authors <a name="author"></a>
-
-👤 **Mohamed Aden Ighe**
-
-- GitHub: [@katarighe](https://github.com/katarighe)
-- Twitter: [@katarighe](https://twitter.com/katarighe)
-- LinkedIn: [@mighe](https://linkedin.com/in/mighe)
-
-👤 **Sodeeq Awoyemi**
-
-- GitHub: [@githubhandle](https://github.com/Errytagedesign)
-- Twitter: [@twitterhandle](https://twitter.com/errytage)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/errytagedesigns/)
-
-👤 **Abdul Wahab Hussain**
-
-- GitHub: [@githubhandle](https://github.com/Abdulwhbhussain)
-- Twitter: [@twitterhandle](https://twitter.com/AbdulWhbHussain)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdulwhbhussain)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a name="future-features"></a>
-
-- **Add Events**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## 🤝 Contributing <a name="contributing"></a>
-
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](https://github.com/katarighe/recipe-app/issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- SUPPORT -->
-
-## ⭐️ Show your support <a name="support"></a>
-
-Give a star⭐️ or a thumbs up 👍 if you like this project! You can visit my GitHub profile for more of my projects.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGEMENTS -->
-
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-- Project supervised by [Microverse](https://www.microverse.org/)
-- [Creative Commons 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## 📝 License <a name="license"></a>
-
-This project is [MIT](./LICENSE) licensed.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+* ...
