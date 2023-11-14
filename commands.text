@@ -32,4 +32,4 @@ rails generate model Food name:string measurement_unit:decimal price_dollars:dec
 
 rails generate model RecipeFood quantity:decimal recipe:references food:references
 
-rails generate model Inventory name:string user:references 
+rails generate model Inventory name:string user:references rails generate model InventoryFood quantity:decimal inventory:references, food:references
