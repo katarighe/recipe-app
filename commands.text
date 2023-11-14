@@ -22,5 +22,14 @@ rails db:rollback
 
 rails db:migrate RAILS_ENV=test
 
+bundle install --gemfile
 
+rails generate model User name:string
 
+rails generate model Recipe name:string preparation_time:decimal cooking_time:decimal description:text public:boolean user:references
+
+rails generate model Food name:string measurement_unit:decimal price_dollars:decimal
+
+rails generate model RecipeFood quantity:decimal recipe:references food:references
+
+rails generate model Inventory name:string user:references 
