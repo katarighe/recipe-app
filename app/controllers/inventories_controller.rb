@@ -1,5 +1,4 @@
 class InventoriesController < ApplicationController
-
   def index
     user = current_user
     @inventories = user.inventories
@@ -26,12 +25,12 @@ class InventoriesController < ApplicationController
 
   def destroy
     @inventory = Inventory.find(params[:id])
-  if @inventory.destroy
-    redirect_to inventories_path, notice: 'Inventory successfully deleted.'
-  else
-    render :index, alert: 'Inventory not deleted.'
+    if @inventory.destroy
+      redirect_to inventories_path, notice: 'Inventory successfully deleted.'
+    else
+      render :index, alert: 'Inventory not deleted.'
+    end
   end
-end
 
   private
 
