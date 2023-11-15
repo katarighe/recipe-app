@@ -7,8 +7,9 @@ class InventoryFoodsController < ApplicationController
   end
 
   def create
-    @inventory = Inventory.find(params[:inventory_id])
-    @inventory_food = @inventory.inventory_foods.new(inventory_food_params)
+    # @inventory = Inventory.find(params[:inventory_id])
+    @inventory_food = InventoryFood.new(inventory_food_params)
+    @inventory_food.inventory_id = params[:inventory_id]
     if @inventory_food.save
       redirect_to inventory_path(@inventory), notice: 'Inventory food successfully created.'
     else

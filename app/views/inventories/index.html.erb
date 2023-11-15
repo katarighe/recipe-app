@@ -1,5 +1,7 @@
 <h1>Inventories</h1>
 
+<%= link_to 'New Inventory', new_inventory_path %>
+
 <% if @inventories.empty? %>
     <div>
         <h3 class="text-center">No inventories yet.</h3>
@@ -12,5 +14,4 @@
         exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
         in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
     <% end %>
-  <% end %>
 <% end %>

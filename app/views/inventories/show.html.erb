@@ -1,6 +1,6 @@
 <%if @inventory.user == current_user %>
     <h1><%= @inventory.name %></h1>
-    <%= link_to "Add food", new_inventory_inventory_food_path(inventory_id: @inventory.id) %>
+    <%= link_to "Add food", new_inventory_food_path(inventory_id: @inventory.id) %>
     <ul>
       <li>
         <div><b>Food</b></div>

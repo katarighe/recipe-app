@@ -7,7 +7,7 @@ class InventoriesController < ApplicationController
   def show
     @user = current_user
     @inventory = Inventory.find(params[:id])
-    @inventory_foods = @inventory.foods
+    @inventory_foods = @inventory.inventory_foods
   end
 
   def new
