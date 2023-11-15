@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RecipesController < ApplicationController
   def index
     @user = current_user
@@ -32,11 +34,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     if @recipe.destroy
       flash[:notice] = 'Recipe deleted.'
-      redirect_to recipes_path
     else
       flash[:alert] = 'Error deleting recipe.'
-      redirect_to recipes_path
     end
+    redirect_to recipes_path
   end
 
   private
