@@ -1,16 +1,18 @@
 class InventoriesController < ApplicationController
   def index
-    user = current_user
-    @inventories = user.inventories
+    @user = current_user
+    @inventories = @user.inventories
   end
 
   def show
+    @user = current_user
     @inventory = Inventory.find(params[:id])
     @inventory_foods = @inventory.foods
   end
 
   def new
-    @inventory = Inventory.new
+    @user = current_user
+    @inventory = @user.inventories.new
   end
 
   def create
@@ -28,13 +30,12 @@ class InventoriesController < ApplicationController
     if @inventory.destroy
       redirect_to inventories_path, notice: 'Inventory successfully deleted.'
     else
-      render :index, alert: 'Inventory not deleted.'
-    end
+      redirect_to inventories_path, alert: 'Inventory not deleted.'
   end
 
   private
 
   def inventory_params
-    params.require(:inventory).permit(:name, :user_id)
+    params.require(:inventory).permit(:name)
   end
 end
