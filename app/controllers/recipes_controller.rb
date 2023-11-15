@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-
   def index
     @user = current_user
     @recipes = @user.recipes
@@ -19,10 +18,10 @@ class RecipesController < ApplicationController
   def create
     @user = current_user
     @recipe = @user.recipes.new(recipe_params)
-    
+
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: "Recipe was successfully created." }
+        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -32,10 +31,10 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     if @recipe.destroy
-      flash[:notice] = "Recipe deleted."
+      flash[:notice] = 'Recipe deleted.'
       redirect_to recipes_path
     else
-      flash[:alert] = "Error deleting recipe."
+      flash[:alert] = 'Error deleting recipe.'
       redirect_to recipes_path
     end
   end

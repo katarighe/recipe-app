@@ -31,9 +31,10 @@ class InventoriesController < ApplicationController
       redirect_to inventories_path, notice: 'Inventory successfully deleted.'
     else
       redirect_to inventories_path, alert: 'Inventory not deleted.'
-  end
+    end
 
-  private
+    private
+  end
 
   def inventory_params
     params.require(:inventory).permit(:name)
