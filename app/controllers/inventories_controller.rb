@@ -7,6 +7,7 @@ class InventoriesController < ApplicationController
 
   def show
     @inventory = Inventory.find(params[:id])
+    @inventory_foods = @inventory.foods
   end
 
   def new
@@ -17,17 +18,20 @@ class InventoriesController < ApplicationController
     @inventory = Inventory.new(inventory_params)
     @inventory.user = current_user
     if @inventory.save
-      redirect_to @inventory
+      redirect_to @inventory, notice: 'Inventory successfully created.'
     else
-      render :new
+      render :new, alert: 'Inventory not created.'
     end
   end
 
   def destroy
     @inventory = Inventory.find(params[:id])
-    @inventory.destroy
-    redirect_to inventories_path
+  if @inventory.destroy
+    redirect_to inventories_path, notice: 'Inventory successfully deleted.'
+  else
+    render :index, alert: 'Inventory not deleted.'
   end
+end
 
   private
 
