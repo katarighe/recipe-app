@@ -1,0 +1,39 @@
+<h1>Public Recipes</h1>
+<section>
+  <div>
+    <% @recipes.each do |recipe| %>
+      <div>
+        <div>
+          <h3><%= link_to recipe.name, recipe_path(id: recipe.id), class: "text-dark" %></h3>
+          <p>By: <%= recipe.user.name %></p>
+        </div>
+        <div>
+          <% total_food_items(recipe.id) %>
+          <p>Total food items: <%= @sub_total[0] %></p>
+          <p>Total price: $<%= @sub_total[1] %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% unless user_signed_in? %>
+    <div>
+      <h2>Log in</h2>
+
+      <%= form_with url: user_session_path do |f| %>
+        <div>
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
+
+        <div>
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        </div>
+
+        <div>
+          <%= f.submit "Log in", data: { turbo: false }, class: "btn btn-primary my-2" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</section>
