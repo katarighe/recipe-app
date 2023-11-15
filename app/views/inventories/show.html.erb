@@ -15,7 +15,7 @@
             <div><%= inventory_food.food.name %></div>
             <div><%= inventory_food.quantity %></div>
             <div>
-              <%= link_to "Remove", inventory_inventory_food_path(inventory_id: @inventory.id, id: inventory_food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+              <%= link_to "Remove", inventory_food_path(inventory_id: @inventory.id, id: inventory_food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
             </div>
           </li>
         <% end %>

@@ -1,15 +1,15 @@
 class InventoryFoodsController < ApplicationController
   def new
     @user = current_user
+    # check if I am receiving the inventory_id in the params
     @inventory = Inventory.find(params[:inventory_id])
     @inventory_food = @inventory.inventory_foods.new
     @foods = Food.all
   end
 
   def create
-    # @inventory = Inventory.find(params[:inventory_id])
-    @inventory_food = InventoryFood.new(inventory_food_params)
-    @inventory_food.inventory_id = params[:inventory_id]
+    @inventory = Inventory.find(params[:inventory_id])
+    @inventory_food = @inventory.inventory_foods.new(food_id: params[:food][:food_id], quantity: params[:quantity])
     if @inventory_food.save
       redirect_to inventory_path(@inventory), notice: 'Inventory food successfully created.'
     else
@@ -30,6 +30,6 @@ class InventoryFoodsController < ApplicationController
   private
 
   def inventory_food_params
-    params.require(:inventory_food).permit(:quantity, :food_id)
+    params.require(:inventory_foods).permit(:quantity, :food_id)
   end
 end
