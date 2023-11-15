@@ -10,15 +10,13 @@ Rails.application.routes.draw do
 
   # routes for MVC
 
-  resources :users, only: [:create]
-
   resources :inventories, only: [:index, :show, :new, :create, :destroy]
 
   resources :recipes, only: [:index, :show, :new, :create, :destroy]
 
-  resources :public_recipes, only: [:index, :show]
+  resources :public_recipes, only: [:index]
 
-  resources :foods, only: [:create]
+  resources :foods, only: [:new, :create, :destroy]
 
   # Defines the root path route ("/")
   # root "posts#index"

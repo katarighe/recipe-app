@@ -1,5 +1,6 @@
 class PublicRecipesController < ApplicationController
   def index
-    # To be completed
+    @recipes = Recipe.where(public: true)
+    @recipes = @recipes.order(:created_at).reverse_order
   end
 end
