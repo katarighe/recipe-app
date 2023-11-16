@@ -41,25 +41,25 @@ RSpec.describe Recipe, type: :model do
   end
 
   context 'preparation_time_hours and cooking_time_hours columns' do
-    it 'should be invalid without a preparation time in hours' do
+    it 'should be invalid without a preparation time (in hours)' do
       recipe.preparation_time_hours = nil
 
       expect(recipe).to_not be_valid
     end
 
-    it 'should be invalid with a preparation time (hours) under 0.01' do
+    it 'should be invalid with a preparation time (in hours) under 0.01' do
       recipe.preparation_time_hours = 0
 
       expect(recipe).to_not be_valid
     end
 
-    it 'should be invalid with a preparation time over 2880' do
+    it 'should be invalid with a preparation time (in hours) over 2880' do
       recipe.preparation_time_hours = 1441
 
       expect(recipe).to_not be_valid
     end
 
-    it 'should be invalid without a cooking time' do
+    it 'should be invalid without a cooking time (in hours)' do
       recipe.cooking_time_hours = nil
 
       expect(recipe).to_not be_valid
