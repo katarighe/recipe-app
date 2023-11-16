@@ -1,6 +1,7 @@
 class RecipeFoodsController < ApplicationController
   def new
     @user = current_user
+    # check if I am receiving the recipe_id in the params
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = @recipe.recipe_foods.new
     @foods = Food.all
@@ -8,7 +9,7 @@ class RecipeFoodsController < ApplicationController
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    @recipe_food = @recipe.recipe_foods.new(recipe_food_params)
+    @recipe_food = @recipe.recipe_foods.new(food_id: params[:food][:food_id], quantity: params[:quantity])
     if @recipe_food.save
       redirect_to recipe_path(@recipe), notice: 'Recipe food successfully created.'
     else
