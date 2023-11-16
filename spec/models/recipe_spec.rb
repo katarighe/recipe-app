@@ -40,8 +40,8 @@ RSpec.describe Recipe, type: :model do
     end
   end
 
-  context 'preparation_time and cooking_time columns' do
-    it 'should be invalid without a preparation time' do
+  context 'preparation_time_hours and cooking_time columns' do
+    it 'should be invalid without a preparation time in hours' do
       recipe.preparation_time_hours = nil
 
       expect(recipe).to_not be_valid
