@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :inventory_food do
     quantity { 1 }
-    inventory { nil }
-    food { nil }
+    inventory_id { nil }
+    food_id { nil }
   end
 end
