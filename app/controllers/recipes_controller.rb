@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
     else
       flash[:alert] = 'Error deleting recipe.'
     end
-    redirect_to recipes_path
+    redirect_to request.referrer
   end
 
   private
