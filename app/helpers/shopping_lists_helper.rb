@@ -16,7 +16,7 @@ module ShoppingListsHelper
                              food_name: target_food.name,
                              food_uom: target_food.measurement_unit,
                              quantity: quantity_to_shop,
-                             price: target_food.price })
+                             price: target_food.price_dollars })
       end
       next if is_food_in_inventory
 
@@ -24,7 +24,7 @@ module ShoppingListsHelper
                            food_name: target_food.name,
                            food_uom: target_food.measurement_unit,
                            quantity: recipe_food.quantity,
-                           price: target_food.price })
+                           price: target_food.price_dollars })
     end
     @shoppinglist
   end
