@@ -16,7 +16,7 @@ RSpec.describe Food, type: :model do
                       user: user)
   end
 
-  describe 'validate food data: ' do
+  describe 'validate Food data: ' do
     it 'should create valid food record with valid attributes' do
       expect(food).to be_valid
     end

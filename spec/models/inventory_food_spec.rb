@@ -18,7 +18,7 @@ RSpec.describe InventoryFood, type: :model do
     FactoryBot.create(:inventory_food, quantity: 5, food_id: food.id, inventory_id: inventory.id)
   end
 
-  context 'Validate' do
+  describe 'validate InventoryFood Data' do
     it 'should have a valid attribute' do
       expect(inventory_food).to be_valid
     end
