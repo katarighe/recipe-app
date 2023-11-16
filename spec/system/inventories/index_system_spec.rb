@@ -6,7 +6,6 @@ RSpec.describe 'Inventories', type: :system do
                              password_confirmation: '123456')
   end
 
-  # rubocop:disable Metrics/BlockLength
   context 'index page' do
     before(:each) do
       driven_by(:rack_test)
