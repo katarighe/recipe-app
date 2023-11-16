@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
                       password_confirmation: 'password')
   end
 
-  describe 'validate data: ' do
+  describe 'validate User data: ' do
     it 'name should be present' do
       user.name = ''
       expect(user).to_not be_valid

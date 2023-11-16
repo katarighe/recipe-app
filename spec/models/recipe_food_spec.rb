@@ -7,7 +7,7 @@ RSpec.describe RecipeFood, type: :model do
   end
 
   let(:recipe) do
-    FactoryBot.create(:recipe, name: 'French macaroons', preparation_time: '20', cooking_time: '15',
+    FactoryBot.create(:recipe, name: 'French macaroons', preparation_time_hours: '1.00', cooking_time_hours: '1.25',
                                description: 'Delicious snack', public: true,
                                user_id: user.id)
   end
@@ -16,7 +16,7 @@ RSpec.describe RecipeFood, type: :model do
     FactoryBot.create(:food,
                       name: 'Apple',
                       measurement_unit: 'grams',
-                      price: 1.15,
+                      price_dollars: 1.15,
                       user: user)
   end
 
@@ -24,7 +24,7 @@ RSpec.describe RecipeFood, type: :model do
     FactoryBot.create(:recipe_food, quantity: 3, food_id: food.id, recipe_id: recipe.id)
   end
 
-  context 'validation' do
+  describe 'validate RecipeFood Data' do
     it 'should be valid with valid attributes' do
       expect(recipe_food).to be_valid
     end

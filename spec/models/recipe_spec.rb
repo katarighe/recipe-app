@@ -12,7 +12,7 @@ RSpec.describe Recipe, type: :model do
                                user_id: user.id)
   end
 
-  context 'validation' do
+  describe 'validate Recipe Data' do
     it 'should be valid with valid attributes' do
       expect(recipe).to be_valid
     end
@@ -40,26 +40,26 @@ RSpec.describe Recipe, type: :model do
     end
   end
 
-  context 'preparation_time_hours and cooking_time columns' do
-    it 'should be invalid without a preparation time in hours' do
+  context 'preparation_time_hours and cooking_time_hours columns' do
+    it 'should be invalid without a preparation time (in hours)' do
       recipe.preparation_time_hours = nil
 
       expect(recipe).to_not be_valid
     end
 
-    it 'should be invalid with a preparation time under 1' do
+    it 'should be invalid with a preparation time (in hours) under 0.01' do
       recipe.preparation_time_hours = 0
 
       expect(recipe).to_not be_valid
     end
 
-    it 'should be invalid with a preparation time over 2880' do
+    it 'should be invalid with a preparation time (in hours) over 2880' do
       recipe.preparation_time_hours = 1441
 
       expect(recipe).to_not be_valid
     end
 
-    it 'should be invalid without a cooking time' do
+    it 'should be invalid without a cooking time (in hours)' do
       recipe.cooking_time_hours = nil
 
       expect(recipe).to_not be_valid

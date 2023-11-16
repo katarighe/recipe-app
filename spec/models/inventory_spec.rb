@@ -12,7 +12,7 @@ RSpec.describe Inventory, type: :model do
 
   before { inventory.save }
 
-  context 'Inventory models' do
+  describe 'validate Inventory Data' do
     it 'should check for valid attributes' do
       expect(inventory).to be_valid
     end
