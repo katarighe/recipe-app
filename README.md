@@ -133,6 +133,8 @@ to run tests:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - **Add Events**
+- **Add Calories**
+- **Add Relevant Nutrition Facts**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

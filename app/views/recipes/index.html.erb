@@ -1,0 +1,17 @@
+<h1>Recipes</h1>
+
+<%= link_to 'New Recipe', new_recipe_path %>
+
+<% if @recipes.empty? %>
+    <div>
+        <h3 class="text-center">No Recipes yet.</h3>
+    </div>
+<% else %>
+
+    <% @recipes.each do |recipe| %>
+        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <% end %>
+<% end %>

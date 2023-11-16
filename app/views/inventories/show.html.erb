@@ -1,0 +1,26 @@
+<%if @inventory.user == current_user %>
+    <h1><%= @inventory.name %></h1>
+    <%= link_to "Add food", new_inventory_food_path(inventory_id: @inventory.id) %>
+    <ul>
+      <li>
+        <div><b>Food</b></div>
+        <div><b>Quantity</b></div>
+        <div><b>Actions</b></div>
+      </li>
+      <% if @inventory_foods.empty? %>
+        <h4>No foods have been added yet.</h4>
+      <% else %>
+        <% @inventory_foods.each do | inventory_food | %>
+          <li>
+            <div><%= inventory_food.food.name %></div>
+            <div><%= inventory_food.quantity %></div>
+            <div>
+              <%= link_to "Remove", inventory_food_path(inventory_id: @inventory.id, id: inventory_food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    <h4>You are not authorized to see this inventory.</h4>
+<% end %>
