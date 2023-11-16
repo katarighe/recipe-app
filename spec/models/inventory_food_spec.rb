@@ -7,7 +7,7 @@ RSpec.describe InventoryFood, type: :model do
   end
 
   let(:inventory) do
-    FactoryBot.create(:inventory, name: 'Wahab', user_id: user.id, description: 'Nice')
+    FactoryBot.create(:inventory, name: 'Abdul Wahab', user_id: user.id, description: 'Nice')
   end
 
   let(:food) do
