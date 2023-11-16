@@ -12,11 +12,11 @@ RSpec.describe Food, type: :model do
     FactoryBot.create(:food,
                       name: 'Apple',
                       measurement_unit: 'grams',
-                      price: 1.15,
+                      price_dollars: 1.15,
                       user: user)
   end
 
-  describe 'validate data: ' do
+  describe 'validate food data: ' do
     it 'should create valid food record with valid attributes' do
       expect(food).to be_valid
     end
@@ -34,7 +34,7 @@ RSpec.describe Food, type: :model do
       expect(food).to_not be_valid
     end
 
-    it 'measurement-unit should be present' do
+    it 'measurement unit should be present' do
       food.measurement_unit = nil
       expect(food).to_not be_valid
 
@@ -42,13 +42,13 @@ RSpec.describe Food, type: :model do
       expect(food).to_not be_valid
     end
 
-    it 'price should be number' do
+    it 'price should be a number' do
       food.price_dollars = 'One hundered twenty five and thirty five cents'
       expect(food).to_not be_valid
     end
 
-    it 'price should be greater or equal to 0.0' do
-      food.price = -100.53
+    it 'price should be greater or equal to 0.00' do
+      food.price_dollars = -100.53
       expect(food).to_not be_valid
     end
   end
