@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @recipes = Recipe.where(public: true).includes([:user])
+    @user = current_user
   end
 end
