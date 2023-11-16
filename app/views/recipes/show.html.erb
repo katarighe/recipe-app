@@ -18,6 +18,7 @@
   </div>
   <div>
     <button type="button"
+    id="generate-shopping-list"
       class="btn btn-primary"
       data-bs-toggle="modal"
       data-bs-target="#staticBackdrop">
@@ -59,7 +60,16 @@
         <h5 id="staticBackdropLabel">Generating Shopping List</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      
+      <div>
+        <h6>Choose an inventory to use</h6>
+        <%= form_with url: shopping_lists_path(recipe_id: @recipe.id), method: :get do |form| %>
+          <%= select("inventory", "inventory_id", Inventory.all.collect { |p| [ p.name, p.id ] }, { prompt: 'Select Inventory' }) %>
+          <%= form.number_field :recipe_id, class: "form-control", value: @recipe.id, hidden: true %>
+      <div>
+        <%= form.submit "Generate", data: { turbo: false }, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      </div>
     </div>
   </div>
 </div>

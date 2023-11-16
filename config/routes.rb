@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :inventory_foods, only: [:new, :create, :destroy]
 
   # Create Route for Shopping List
-  get '/shopping_list?recipe_id=params[:recipe_id]&inventory_id=params[:inventory][:inventory_id]', to: 'shopping_lists#index'
+  get '/shopping_lists', to: 'shopping_lists#index', as: 'shopping_lists'
 
   # Defines the root path route ("/")
   # root "posts#index"
