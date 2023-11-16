@@ -1,9 +1,11 @@
 <div>
-  <% if @recipe.public || @recipe.user == current_user %>
-  <h1><%= @recipe.name %></h1>
-  <div>
+<% if @recipe.public || @recipe.user == current_user %>
+<h1 class="show-recipe-heading">Recipe 1</h1>
+    <h2 class="show-recipe-name"><%= @recipe.name %></h2>
+
     <div>
-      <p>Preparation time: <%= @recipe.preparation_time_hours %> hours</p>
+    <div>
+      <p>Preparation time: <b><%= @recipe.preparation_time_hours %> hours</b></p>
       <div>
         <span>Public</span>
         <% if @recipe.public %>
@@ -13,9 +15,11 @@
         <% end %>
       </div>
     </div>
-    <p>Cooking time: <%= @recipe.cooking_time_hours %> hours</p>
-    <p class="fs-5">Steps go here..</p>
+    <p>Cooking time: <b><%= @recipe.cooking_time_hours %> hours</b></p>
+    <p class="fs-5"><%= @recipe.description %></p>
   </div>
+
+
   <div>
     <button type="button"
     id="generate-shopping-list"
@@ -24,52 +28,57 @@
       data-bs-target="#staticBackdrop">
         Generate shopping list
     </button>
-    <%= link_to "Add ingredient", new_recipe_food_path(recipe_id: @recipe.id), class: "btn btn-primary m-1" if @recipe.user == current_user %>
+
+    <% if @recipe.user == current_user %>
+    <button class="add-ingredient-button">
+    <%= link_to "Add ingredient", new_recipe_food_path(recipe_id: @recipe.id) %>
+    </button>
+    <% end %>
   </div>
-  <% else %>
-    <h1>You are not authorized to see this recipe.</h1>
-  <% end %>
-  <% if @recipe_foods.empty? %>
-    <h4>No foods added yet.</h4>
-  <% else %>
-    <ul>
-        <li>
-          <div><b>Food</b></div>
-          <div><b>Quantity</b></div>
-          <div><b>Value</b></div>
-          <div><b>Actions</b></div>
-        </li>
-        <% @recipe_foods.each do | recipe_food | %>
-          <li>
-            <div><%= recipe_food.food.name %></div>
-            <div><%= recipe_food.quantity %></div>
-            <div>
+
+  
+    <hr>
+
+
     
-              <%= link_to "Remove", recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
-            </div>
-          </li>
+      <% if @recipe_foods.empty? %>
+        <h4>No foods have been added yet.</h4>
+      <% else %>
+
+      <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @recipe_foods.each do | recipe_food | %>
+          <tr>
+        <td><div><%= recipe_food.food.name %></div></td>
+        <td><div><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></div></td>
+        <td><div><b>$<%= recipe_food.food.price_dollars * recipe_food.quantity %></b></div></td>
+        <td class="action">
+        <div>
+
+        <%= link_to "Remove", recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      </div>
+        </td>
+      </tr>
         <% end %>
-      </ul>
-  <% end %>
+    </tbody>
+  </table>
+      <% end %>
+      
+  <% else %>
+    <h4>You are not authorized to see this recipe.</h4>
+<% end %>
 </div>
 
-<div>
-  <div>
-    <div>
-      <div>
-        <h5 id="staticBackdropLabel">Generating Shopping List</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div>
-        <h6>Choose an inventory to use</h6>
-        <%= form_with url: shopping_lists_path(recipe_id: @recipe.id), method: :get do |form| %>
-          <%= select("inventory", "inventory_id", Inventory.all.collect { |p| [ p.name, p.id ] }, { prompt: 'Select Inventory' }) %>
-          <%= form.number_field :recipe_id, class: "form-control", value: @recipe.id, hidden: true %>
-      <div>
-        <%= form.submit "Generate", data: { turbo: false }, class: "btn btn-primary" %>
-        <% end %>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+
+
+

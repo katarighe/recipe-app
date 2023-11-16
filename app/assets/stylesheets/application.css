@@ -78,29 +78,30 @@
     margin-top: 50px;
   }
 
-  #inventories, #public-recipes {
+  #inventories, #public-recipes, #recipes {
     
   }
 
-  #inventories-heading, #public-recipes-heading {
+  #inventories-heading, #public-recipes-heading,
+  #recipes-heading {
     text-align: center;
     padding: 5px 20px;
     margin-top: 10px;
   }
 
-  #new-inventory {
+  #new-inventory, #new-recipe {
     color: #333;
     padding: 5px 10px;
     font-size: medium;
   }
 
-  #new-inventory-button {
+  #new-inventory-button, #new-recipe-button {
     margin-left: 90%;
     margin-top: 20px;
     margin-bottom: 20px;
   }
 
-  .inventory, .public-recipe {
+  .inventory, .public-recipe, .recipe {
     border-color: #333;
     border-style: solid;
     border-width: 2px;
@@ -112,26 +113,26 @@
     flex-direction: row;
   }
 
-  .inventory-main-info, .public-recipe-main-info {
+  .inventory-main-info, .public-recipe-main-info, .recipe-main-info {
     width: 50%;
   }
 
-  .inventory-description, .public-recipe-description {
+  .inventory-description, .public-recipe-description, .recipe-description {
     width: 50%;
   }
 
-  .show-inventory-heading {
+  .show-inventory-heading, .show-recipe-heading {
     text-align: center;
     padding: 0px 5px;
     margin-top: 10px;
   }
 
-  .show-inventory-name {
+  .show-inventory-name, .show-recipe-name {
     text-align: center;
     padding: 0px 5px;
   }
 
-  .add-food-button {
+  .add-food-button, .add-ingredient-button {
     margin-left: 90%;
     margin-top: 20px;
     margin-bottom: 20px;
