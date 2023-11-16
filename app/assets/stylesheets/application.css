@@ -282,3 +282,28 @@
     font-size: 1.5rem;
     cursor: pointer;
   }
+
+  #generate-shopping-list {
+    padding: 5px 10px;
+    font-size: medium;
+    color: #333;
+    margin-top: 10px;
+  }
+
+  .prepare-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  #modal-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .generate-submit {
+    padding: 5px 10px;
+  }

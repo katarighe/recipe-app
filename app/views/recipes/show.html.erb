@@ -4,13 +4,14 @@
     <h2 class="show-recipe-name"><%= @recipe.name %></h2>
 
     <div id="recipe-details-information">
-    <div>
+    <div class="prepare-toggle">
       <p>Preparation time: <b><%= @recipe.preparation_time_hours %> hours</b></p>
+
       <div>
 
       <% if @recipe.user == current_user %>
   <div class="toggle-container">
-    <%= form_for @recipe, url: recipe_path(@recipe), method: :patch, remote: true do |f| %>
+    <%= form_for @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
       <label for="toggle">
         <b>Public</b>
       </label>
@@ -28,6 +29,7 @@
       </div>
     </div>
     <p>Cooking time: <b><%= @recipe.cooking_time_hours %> hours</b></p>
+    <hr style="margin-top: 10px; margin-bottom: 10px;">
     <p class="fs-5"><%= @recipe.description %></p>
   </div>
 
@@ -48,7 +50,7 @@
     <div class="custom-modal" id="myModal" style="display: none;">
       <div class="custom-modal-content card">
         <div class="custom-modal-header">
-          <h5 class="custom-modal-title">Modal Title</h5>
+          <h5 class="custom-modal-title">Generating Shopping List</h5>
           <button type="button" class="custom-btn-close" onclick="hideModal()" aria-label="Close"></button>
         </div>
         <div class="custom-modal-body">
@@ -56,18 +58,19 @@
           <div>
   <div>
     <div>
-      <div>
-        <h5 id="staticBackdropLabel">Generating Shopping List</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div>
+      
+      <div id="">
         <h6>Choose an inventory to use</h6>
         <%= form_with url: shopping_lists_path(recipe_id: @recipe.id), method: :get do |form| %>
+          <div id="modal-input">
+          <div>
           <%= select("inventory", "inventory_id", Inventory.all.collect { |p| [ p.name, p.id ] }, { prompt: 'Select Inventory' }) %>
           <%= form.number_field :recipe_id, class: "form-control", value: @recipe.id, hidden: true %>
+          </div>
       <div>
-        <%= form.submit "Generate", data: { turbo: false }, class: "btn btn-primary" %>
+        <%= form.submit "Generate", data: { turbo: false }, class: "btn btn-primary generate-submit" %>
         <% end %>
+      </div>
       </div>
       </div>
     </div>
