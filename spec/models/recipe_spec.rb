@@ -7,7 +7,7 @@ RSpec.describe Recipe, type: :model do
   end
 
   let(:recipe) do
-    FactoryBot.create(:recipe, name: 'French macaroons', preparation_time_hours: '20', cooking_time_hours: '15',
+    FactoryBot.create(:recipe, name: 'French macaroons', preparation_time_hours: '1.00', cooking_time_hours: '1.50',
                                description: 'Delicious snack', public: true,
                                user_id: user.id)
   end
@@ -65,7 +65,7 @@ RSpec.describe Recipe, type: :model do
       expect(recipe).to_not be_valid
     end
 
-    it 'should be invalid with a cooking time under 1' do
+    it 'should be invalid with a cooking time under 0.01' do
       recipe.cooking_time_hours = 0
 
       expect(recipe).to_not be_valid
