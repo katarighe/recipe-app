@@ -21,12 +21,12 @@
 
       <div>
         <%= form.label :cooking_time_hours %>
-        <%= form.number_field :cooking_time_hours, step: 1, class: "form-control", required: true %>
+        <%= form.number_field :cooking_time_hours, step: 0.01, class: "form-control", required: true %>
       </div>
 
       <div>
         <%= form.label :preparation_time_hours %>
-        <%= form.number_field :preparation_time_hours, step: 1, class: "form-control", required: true %>
+        <%= form.number_field :preparation_time_hours, step: 0.01, class: "form-control", required: true %>
       </div>
 
       <div>
