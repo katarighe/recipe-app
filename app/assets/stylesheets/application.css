@@ -174,3 +174,111 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
+  .toggle-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Styles for the toggle input */
+  .toggle-input {
+    display: none; /* Hide the actual checkbox */
+  }
+
+  /* Styles for the toggle label/button */
+  .toggle-label {
+    display: block;
+    width: 50px; /* Adjust width as needed */
+    height: 30px; /* Adjust height as needed */
+    background-color: #2196F3; /* Default background color */
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    border-radius: 15px; /* Adjust for rounded corners */
+    transition: background-color 0.3s ease;
+  }
+
+  /* Styles for the toggle indicator (dot or handle) */
+  .toggle-indicator {
+    width: 24px; /* Adjust width as needed */
+    height: 24px; /* Adjust height as needed */
+    background-color: #fff; /* Default indicator color */
+    position: relative;
+    top: 3px; /* Adjust vertical position as needed */
+    left: 3px; /* Adjust horizontal position as needed */
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+
+  /* Styles for the checked state */
+  .toggle-input:checked + .toggle-label {
+    background-color: #4CAF50; /* Change background color when checked */
+  }
+
+  .toggle-input:checked + .toggle-label .toggle-indicator {
+    transform: translateX(20px); /* Move the indicator to the right when checked */
+  }
+
+  #recipe-details-information {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  #shopping-list-generate-button {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .custom-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .custom-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 50%;
+    margin-top: 200px;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  .custom-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+  .custom-modal-title {
+    margin: 0;
+  }
+
+  .custom-modal-body {
+    padding: 20px 0;
+  }
+
+  .custom-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .custom-btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
