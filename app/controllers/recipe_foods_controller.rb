@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RecipeFoodsController < ApplicationController
   def new
     @user = current_user

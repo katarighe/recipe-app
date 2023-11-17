@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop:disable
 module ShoppingListsHelper
   def shopping_list
@@ -13,7 +15,8 @@ module ShoppingListsHelper
                            food_name: target_food.name,
                            food_uom: target_food.measurement_unit,
                            quantity: RecipeFood.find_by(recipe_id: params[:recipe_id], food_id: food_id).quantity,
-                           price: target_food.price_dollars * RecipeFood.find_by(recipe_id: params[:recipe_id], food_id: food_id).quantity })
+                           price: target_food.price_dollars * RecipeFood.find_by(recipe_id: params[:recipe_id],
+                                                                                 food_id: food_id).quantity })
     end
 
     # Recipe foods that are in inventory but not enough
@@ -22,15 +25,19 @@ module ShoppingListsHelper
     @recipe_foods_ids_in_inventory.each do |food_id|
       target_food = food(food_id)
       @shoppinglist.push({ food_id: food_id,
-                            food_name: target_food.name,
-                            food_uom: target_food.measurement_unit,
-                            quantity: RecipeFood.find_by(recipe_id: params[:recipe_id], food_id: food_id).quantity - InventoryFood.find_by(inventory_id: params[:inventory][:inventory_id], food_id: food_id).quantity,
-                            price: target_food.price_dollars * (RecipeFood.find_by(recipe_id: params[:recipe_id], food_id: food_id).quantity - InventoryFood.find_by(inventory_id: params[:inventory][:inventory_id], food_id: food_id).quantity) })
+                           food_name: target_food.name,
+                           food_uom: target_food.measurement_unit,
+                           quantity: RecipeFood.find_by(recipe_id: params[:recipe_id],
+                                                        food_id: food_id).quantity - InventoryFood.find_by(inventory_id: params[:inventory][:inventory_id],
+                                                                                                           food_id: food_id).quantity,
+                           price: target_food.price_dollars * (RecipeFood.find_by(recipe_id: params[:recipe_id],
+                                                                                  food_id: food_id).quantity - InventoryFood.find_by(inventory_id: params[:inventory][:inventory_id],
+                                                                                                                                     food_id: food_id).quantity) })
     end
 
     # Filter out foods with 0 or less than 0 quantity
-    @shoppinglist = @shoppinglist.select { |item| item[:quantity] > 0 }
-    
+    @shoppinglist = @shoppinglist.select { |item| (item[:quantity]).positive? }
+
     @shoppinglist
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop:disable
 class RecipeFood < ApplicationRecord
   belongs_to :recipe
@@ -9,7 +11,7 @@ class RecipeFood < ApplicationRecord
     recipe_foods = RecipeFood.where(recipe_id: recipe)
     price = 0
     recipe_foods.each do |recipe_food|
-      food = Food.find(recipe_food.food_id)
+      Food.find(recipe_food.food_id)
       price += recipe_food.quantity * recipe_food.food.price_dollars
     end
     price
