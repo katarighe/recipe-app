@@ -15,21 +15,21 @@ Layout/LineLength:
     - "app/controllers/*"
     - "app/models/*"
     - "app/helpers/*"
-    - "spec/system*"
+    - "spec/system/*"
   Max: 200
 Metrics/MethodLength:
   Exclude:
     - "app/controllers/*"
     - "app/models/*"
     - "app/helpers/*"
-    - "spec/system*"
+    - "spec/system/*"
   Max: 50
 Metrics/AbcSize:
   Exclude:
     - "app/controllers/*"
     - "app/models/*"
     - "app/helpers/*"
-    - "spec/system*"
+    - "spec/system/*"
   Max: 70
 Metrics/ClassLength:
   Max: 200
@@ -38,7 +38,7 @@ Metrics/BlockLength:
     - "app/controllers/*"
     - "app/models/*"
     - "app/helpers/*"
-    - "spec/system*"
+    - "spec/system/*"
   AllowedMethods: ['describe']
   Max: 300
 
