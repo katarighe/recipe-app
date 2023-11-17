@@ -6,7 +6,7 @@ RSpec.describe InventoryFood, type: :model do
   @food = Food.new(
     name: 'Rice',
     measurement_unit: 'kg',
-    price: 5.99
+    price_dollars: 5.99
   )
   subject do
     InventoryFood.new(
