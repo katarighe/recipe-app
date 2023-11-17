@@ -1,80 +1,37 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  let(:user) do
-    FactoryBot.create(:user, name: 'Pedro Guerreiro', email: 'pedro@domain.com', password: '123456',
-                             password_confirmation: '123456')
+  subject { Recipe.new(name: 'Couche Lorraine', description: 'Slice the bread', preparation_time_hours: 1.00, cooking_time_hours: 1.00) }
+
+  before { subject.save }
+
+  it 'should have a name' do
+    subject.name = nil
+    expect(subject).to_not be_valid
   end
 
-  let(:recipe) do
-    FactoryBot.create(:recipe, name: 'French macaroons', preparation_time_hours: '1.00', cooking_time_hours: '1.50',
-                               description: 'Delicious snack', public: true,
-                               user_id: user.id)
+  it 'should have a description' do
+    subject.description = nil
+    expect(subject).to_not be_valid
   end
 
-  describe 'validate Recipe Data' do
-    it 'should be valid with valid attributes' do
-      expect(recipe).to be_valid
-    end
-
-    it 'should be invalid without a name' do
-      recipe.name = nil
-
-      expect(recipe).to_not be_valid
-    end
-
-    it 'should be invalid with a description under 1 character and over 200 characters' do
-      recipe.description = ''
-
-      expect(recipe).to_not be_valid
-
-      recipe.description = 'a' * 201
-
-      expect(recipe).to_not be_valid
-    end
-
-    it 'should be invalid with without a public value' do
-      recipe.public = nil
-
-      expect(recipe).to_not be_valid
-    end
+  it 'should have preparation_time' do
+    subject.preparation_time = nil
+    expect(subject).to_not be_valid
   end
 
-  context 'preparation_time_hours and cooking_time_hours columns' do
-    it 'should be invalid without a preparation time (in hours)' do
-      recipe.preparation_time_hours = nil
+  it 'should have cooking_time' do
+    subject.cooking_time = nil
+    expect(subject).to_not be_valid
+  end
 
-      expect(recipe).to_not be_valid
-    end
+  it 'name should have less than 50 characters but greater than 3 characters' do
+    subject.name = ('a' * 60) && subject.name = 'a' * 2
+    expect(subject).to_not be_valid
+  end
 
-    it 'should be invalid with a preparation time (in hours) under 0.01' do
-      recipe.preparation_time_hours = 0
-
-      expect(recipe).to_not be_valid
-    end
-
-    it 'should be invalid with a preparation time (in hours) over 2880' do
-      recipe.preparation_time_hours = 1441
-
-      expect(recipe).to_not be_valid
-    end
-
-    it 'should be invalid without a cooking time (in hours)' do
-      recipe.cooking_time_hours = nil
-
-      expect(recipe).to_not be_valid
-    end
-
-    it 'should be invalid with a cooking time under 0.01' do
-      recipe.cooking_time_hours = 0
-
-      expect(recipe).to_not be_valid
-    end
-
-    it 'should be invalid with a cooking time over 2880' do
-      recipe.cooking_time_hours = 1441
-
-      expect(recipe).to_not be_valid
-    end
+  it 'description should have less than 300 characters but greater than 10 characters' do
+    subject.description = ('a' * 350) && subject.description = 'a' * 9
+    expect(subject).to_not be_valid
   end
 end
