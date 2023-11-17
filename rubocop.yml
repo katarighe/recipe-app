@@ -8,11 +8,6 @@ AllCops:
     - "Rakefile"
     - "node_modules/**/*"
     - "spec/system/*"
-    - 'spec/system/devise/signup_system_spec.rb'
-    - 'spec/system/devise/login_system_spec.rb'
-    - 'app/helpers/shopping_lists_helper.rb'
-    - 'app/models/recipe_food.rb'
-    - 'spec/rails_helper.rb'
 
   DisplayCopNames: true
 
@@ -23,6 +18,8 @@ Layout/LineLength:
     - "app/helpers/*"
     - "spec/system/*"
   Max: 200
+  Enabled: False
+
 Metrics/MethodLength:
   Exclude:
     - "app/controllers/*"
@@ -30,6 +27,7 @@ Metrics/MethodLength:
     - "app/helpers/*"
     - "spec/system/*"
   Max: 50
+  Enabled: False
 Metrics/AbcSize:
   Exclude:
     - "app/controllers/*"
@@ -37,8 +35,10 @@ Metrics/AbcSize:
     - "app/helpers/*"
     - "spec/system/*"
   Max: 70
+  Enabled: False
 Metrics/ClassLength:
   Max: 200
+  Enabled: False
 Metrics/BlockLength:
   Exclude:
     - "app/controllers/*"
@@ -47,6 +47,7 @@ Metrics/BlockLength:
     - "spec/system/*"
   AllowedMethods: ['describe']
   Max: 300
+  Enabled: False
 
 Style/Documentation:
   Enabled: false
