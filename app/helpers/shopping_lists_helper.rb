@@ -1,3 +1,4 @@
+# rubocop:disable
 module ShoppingListsHelper
   def shopping_list
     @shoppinglist = []

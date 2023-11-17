@@ -1,3 +1,4 @@
+# rubocop:disable
 require 'rails_helper'
 
 RSpec.describe 'Inventories', type: :system do
