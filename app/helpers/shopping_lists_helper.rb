@@ -30,8 +30,6 @@ module ShoppingListsHelper
     # Filter out foods with 0 or less than 0 quantity
     @shoppinglist = @shoppinglist.select { |item| item[:quantity] > 0 }
     
-
-    
     @shoppinglist
   end
 
