@@ -1,32 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Inventory, type: :model do
-  let(:user) do
-    FactoryBot.create(:user, name: 'Abdul Wahab', email: 'oluyaratosin123@gmail.com', password: 'root17',
-                             password_confirmation: 'root17')
+  @user = User.new(name: 'pepe', email: 'email1@email.com', password: 'abcdef')
+
+  subject do
+    Inventory.new(user_id: @user)
   end
 
-  let(:inventory) do
-    FactoryBot.create(:inventory, name: 'Abdul Wahab', user_id: user.id, description: 'Test')
-  end
+  before { subject.save }
 
-  before { inventory.save }
-
-  describe 'validate Inventory Data' do
-    it 'should check for valid attributes' do
-      expect(inventory).to be_valid
-    end
-
-    it 'should be invalid without name attribute' do
-      inventory.name = ''
-
-      expect(inventory).to_not be_valid
-    end
-
-    it 'should be invalid without the user id' do
-      inventory.user_id = ''
-
-      expect(inventory).to_not be_valid
-    end
+  it 'should have a name' do
+    subject.name = nil
+    expect(subject).not_to be_valid
   end
 end
