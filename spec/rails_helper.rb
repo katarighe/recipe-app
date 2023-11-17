@@ -61,3 +61,16 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    # Choose a test framework:
+    with.test_framework :rspec
+
+    # Or, choose the following (instead of :rspec) if you're using Minitest:
+    # with.test_framework :minitest
+
+    # Choose a library (we'll use Rails here):
+    with.library :rails
+  end
+end

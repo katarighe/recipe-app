@@ -15,6 +15,13 @@ RSpec.describe RecipeFood, type: :model do
                    quantity: 1,
                    recipe_id: @recipe)
   end
+
+  before { subject.save }
+
+  it { should belong_to(:recipe) }
+  it { should belong_to(:food) }
+  it { should validate_presence_of(:quantity) }
+
   it 'should have a quantity' do
     subject.quantity = nil
     expect(subject).not_to be_valid

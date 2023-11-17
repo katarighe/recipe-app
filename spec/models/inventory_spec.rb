@@ -4,13 +4,16 @@ RSpec.describe Inventory, type: :model do
   @user = User.new(name: 'pepe', email: 'email1@email.com', password: 'abcdef')
 
   subject do
-    Inventory.new(user_id: @user)
+    described_class.new(
+      user: @user,
+      name: 'My Kitchen Inventory'
+    )
   end
 
   before { subject.save }
 
-  it 'should have a name' do
-    subject.name = nil
-    expect(subject).not_to be_valid
-  end
+  it { should belong_to(:user) }
+  it { should have_many(:inventory_foods).dependent(:destroy) }
+
+  it { should validate_presence_of(:name) }
 end

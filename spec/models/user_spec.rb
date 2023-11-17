@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Pepe') }
+  subject { described_class.new(name: 'Naveed') }
 
   before { subject.save }
 
-  it 'validity' do
-    expect(subject).not_to be_valid
-  end
+  it { should have_many(:recipes).dependent(:destroy) }
+  it { should have_many(:inventories).dependent(:destroy) }
+
+  it { should validate_presence_of(:name) }
 end
