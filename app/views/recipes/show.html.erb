@@ -114,7 +114,7 @@
       </tr>
     </thead>
     <tbody>
-        <% @recipe_foods.each do | recipe_food | %>
+        <% @inventory_foods.each do |recipe_food| %>
           <tr>
         <td><div><%= recipe_food.food.name %></div></td>
         <td><div><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></div></td>
