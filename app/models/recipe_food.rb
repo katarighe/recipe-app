@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# rubocop:disable
 class RecipeFood < ApplicationRecord
   belongs_to :recipe
   belongs_to :food

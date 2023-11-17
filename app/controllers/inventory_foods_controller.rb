@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class InventoryFoodsController < ApplicationController
   def new
     @user = current_user

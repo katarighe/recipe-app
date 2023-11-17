@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ChangeQuantityDecimalToInteger < ActiveRecord::Migration[7.1]
   def change
     change_column :inventory_foods, :quantity, :integer
