@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FoodsController < ApplicationController
   def new
     @food = Food.new
@@ -6,7 +8,8 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     if @food.save
-      redirect_to root_path, notice: 'Food successfully created.'
+      # redirect to the page that called this action
+      redirect_to request.referer, notice: 'Food successfully created.'
     else
       render :new, alert: 'Food not created.'
     end

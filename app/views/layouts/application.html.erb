@@ -13,13 +13,11 @@
   <body>
   <nav>
   <div>
-    <%= link_to "Recipe App", root_path %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <%= link_to "Recipe App", root_path, id: "recipe-app" %>
     </button>
     <div id="navbarSupportedContent">
       <% if user_signed_in? %>
-      <ul>
+      <ul id="menu-main">
         <li>
           <%= link_to "Recipes", recipes_path, class: "nav-link" %>
         </li>
@@ -34,11 +32,8 @@
         </li>
       </ul>
       <% end %>
-      <ul>
+      <ul id="signin-up-menu">
       <% if user_signed_in? %>
-        <li>
-          <p>User: <%= current_user.name %></p>
-        </li>
         <li>
           <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-warning mb-1" %>
         </li>

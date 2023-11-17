@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InventoriesController < ApplicationController
   def index
     @user = current_user
@@ -32,9 +34,9 @@ class InventoriesController < ApplicationController
     else
       redirect_to inventories_path, alert: 'Inventory not deleted.'
     end
-
-    private
   end
+
+  private
 
   def inventory_params
     params.require(:inventory).permit(:name)

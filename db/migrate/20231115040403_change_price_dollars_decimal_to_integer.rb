@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangePriceDollarsDecimalToInteger < ActiveRecord::Migration[7.1]
   def change
     change_column :foods, :price_dollars, :integer

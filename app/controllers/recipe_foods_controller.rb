@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RecipeFoodsController < ApplicationController
   def new
     @user = current_user
@@ -24,6 +26,23 @@ class RecipeFoodsController < ApplicationController
       redirect_to recipe_path(@recipe), notice: 'Recipe food successfully deleted.'
     else
       redirect_to recipe_path(@recipe), alert: 'Recipe food not deleted.'
+    end
+  end
+
+  def edit
+    @user = current_user
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe = @recipe_food.recipe
+    @foods = Food.all
+  end
+
+  def update
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe = @recipe_food.recipe
+    if @recipe_food.update(recipe_food_params)
+      redirect_to recipe_path(@recipe), notice: 'Recipe food successfully updated.'
+    else
+      redirect_to request.referrer, alert: 'Recipe food not updated.'
     end
   end
 

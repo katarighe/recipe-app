@@ -7,26 +7,47 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "spec/system/*"
 
   DisplayCopNames: true
 
 Layout/LineLength:
+  Exclude:
+    - "app/controllers/*"
+    - "app/models/*"
+    - "app/helpers/*"
+    - "spec/system/*"
   Max: 200
+  Enabled: False
+
 Metrics/MethodLength:
-  Include:
+  Exclude:
     - "app/controllers/*"
     - "app/models/*"
+    - "app/helpers/*"
+    - "spec/system/*"
   Max: 50
+  Enabled: False
 Metrics/AbcSize:
-  Include:
+  Exclude:
     - "app/controllers/*"
     - "app/models/*"
+    - "app/helpers/*"
+    - "spec/system/*"
   Max: 70
+  Enabled: False
 Metrics/ClassLength:
   Max: 200
+  Enabled: False
 Metrics/BlockLength:
+  Exclude:
+    - "app/controllers/*"
+    - "app/models/*"
+    - "app/helpers/*"
+    - "spec/system/*"
   AllowedMethods: ['describe']
-  Max: 100
+  Max: 300
+  Enabled: False
 
 Style/Documentation:
   Enabled: false

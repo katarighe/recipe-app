@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameCookingTimeMinutesToCookingTimeHours < ActiveRecord::Migration[7.1]
   def change
     rename_column :recipes, :cooking_time_minutes, :cooking_time_hours
